@@ -1,4 +1,4 @@
-# Flux Video Interaction Service
+# Finch
 
 This service manages user interactions for a video platform, including likes, dislikes, and comments. It uses Go for the backend, Bun as the ORM, and Socket.IO for real-time updates.
 

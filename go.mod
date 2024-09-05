@@ -1,11 +1,10 @@
-module github.com/Haeven/finch
+module finch
 
 go 1.22
 
 toolchain go1.22.7
 
 require (
-	flux v0.0.0-00010101000000-000000000000
 	github.com/Haeven/codec v0.0.0-20240905163527-7ea0073cedeb
 	github.com/lib/pq v1.10.9
 	github.com/twmb/franz-go v1.17.1
@@ -14,9 +13,11 @@ require (
 	github.com/uptrace/bun/driver/pgdriver v1.2.3
 )
 
+require github.com/gofrs/uuid v4.0.0+incompatible // indirect
+
 require (
 	github.com/gomodule/redigo v1.8.4 // indirect
-	github.com/googollee/go-socket.io v1.7.0 // indirect
+	github.com/googollee/go-socket.io v1.7.0
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/klauspost/compress v1.17.8 // indirect
@@ -31,4 +32,4 @@ require (
 	mellium.im/sasl v0.3.1 // indirect
 )
 
-replace flux => ./
+replace finch => ./

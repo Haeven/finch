@@ -18,12 +18,12 @@ This service manages user interactions for a video platform, including likes, di
 
 1. Build the Docker image:
    ```
-   docker build -t flux-video-interaction .
+   docker build -t finch-video-interaction .
    ```
 
 2. Run the container:
    ```
-   docker run -p 8080:8080 flux-video-interaction
+   docker run -p 8080:8080 finch-video-interaction
    ```
 
    The service will be available at `http://localhost:8080`.

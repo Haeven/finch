@@ -5,7 +5,7 @@ import (
 	"context"
 	"time"
 
-	"flux/internal/db"
+	"finch/internal/db"
 
 	socketio "github.com/googollee/go-socket.io"
 	"github.com/uptrace/bun"

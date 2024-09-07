@@ -1,10 +1,9 @@
+// pkg/account/account.go
 package account
 
 import (
 	"context"
 	"time"
-
-	"flux/internal/db"
 
 	"github.com/uptrace/bun"
 )
@@ -27,9 +26,9 @@ type Account struct {
 	UpdatedAt      time.Time `bun:"updated_at,notnull"`
 }
 
-func NewAccountService() *AccountService {
+func NewAccountService(db *bun.DB) *AccountService {
 	return &AccountService{
-		db: db.Initialize(),
+		db: db,
 	}
 }
 

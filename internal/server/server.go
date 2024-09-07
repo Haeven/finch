@@ -5,22 +5,26 @@ import (
 	"encoding/json"
 	"log"
 
-	"flux/pkg/interactions"
+	"finch/pkg/interactions"
 
-	"github.com/Haeven/codec/pkg/kafka"
+	"finch/pkg/account"
+	"finch/pkg/kafka"
+
 	"github.com/twmb/franz-go/pkg/kgo"
 )
 
 type Server struct {
 	kafkaClient        *kafka.KafkaClient
 	interactionService *interactions.InteractionService
+	accountService     *account.AccountService
 }
 
-func NewServer(kafkaClient *kafka.KafkaClient, interactionService *interactions.InteractionService) *Server {
+func NewServer(kafkaClient *kafka.KafkaClient, interactionService *interactions.InteractionService, accountService *account.AccountService) *Server {
 	log.Println("Creating new server instance")
 	return &Server{
 		kafkaClient:        kafkaClient,
 		interactionService: interactionService,
+		accountService:     accountService,
 	}
 }
 
@@ -30,8 +34,7 @@ func (s *Server) Run(ctx context.Context) error {
 	// Start Kafka consumer for interactions
 	go s.consumeInteractions(ctx)
 
-	// ... (rest of the Run method remains unchanged)
-
+	// Wait for context cancellation
 	<-ctx.Done()
 	return ctx.Err()
 }
